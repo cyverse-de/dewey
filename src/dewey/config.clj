@@ -75,12 +75,12 @@
 (cc/defprop-optstr es-user
   "The username for the Elasticsearch server"
   [props config-valid configs]
-  "dewey.es.username" nil)
+  "dewey.es.username" "admin")
 
 (cc/defprop-optstr es-password
   "The password for the Elasticsearch server"
   [props config-valid configs]
-  "dewey.es.password" nil)
+  "dewey.es.password" "admin")
 
 (cc/defprop-optstr es-index
   "The Elasticsearch index"
