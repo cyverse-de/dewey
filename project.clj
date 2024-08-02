@@ -47,7 +47,6 @@
             [test2junit "1.4.4"]]
   :resource-paths []
   :profiles {:dev     {:dependencies   [[midje "1.10.10"]]
-                       :jvm-opts       ["-Dotel.javaagent.enabled=false"]
                        :resource-paths ["dev-resources"]}
              :uberjar {:aot :all}}
-  :jvm-opts ["-Dlogback.configurationFile=/etc/iplant/de/logging/dewey-logging.xml" "-javaagent:./opentelemetry-javaagent.jar" "-Dotel.resource.attributes=service.name=dewey"])
+  :jvm-opts ["-Dlogback.configurationFile=/etc/iplant/de/logging/dewey-logging.xml"])

@@ -1,10 +1,12 @@
-FROM clojure:openjdk-17-lein-alpine
+FROM clojure:temurin-22-lein-jammy
 
 WORKDIR /usr/src/app
 
-RUN apk add --no-cache git
+RUN apt-get update && \
+    apt-get install -y git && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN ln -s "/opt/openjdk-17/bin/java" "/bin/dewey"
+RUN ln -s "/opt/java/openjdk/bin/java" "/bin/dewey"
 
 ENV OTEL_TRACES_EXPORTER none
 
@@ -14,10 +16,10 @@ RUN lein deps
 COPY conf/main/logback.xml /usr/src/app/
 COPY . /usr/src/app
 
-RUN lein uberjar && \
+RUN lein do clean, uberjar && \
     cp target/dewey-standalone.jar .
 
-ENTRYPOINT ["dewey", "-Dlogback.configurationFile=/etc/iplant/de/logging/dewey-logging.xml", "-javaagent:/usr/src/app/opentelemetry-javaagent.jar", "-Dotel.resource.attributes=service.name=dewey", "-cp", ".:dewey-standalone.jar", "dewey.core"]
+ENTRYPOINT ["dewey", "-Dlogback.configurationFile=/etc/iplant/de/logging/dewey-logging.xml", "-cp", ".:dewey-standalone.jar", "dewey.core"]
 CMD ["--help"]
 
 ARG git_commit=unknown
