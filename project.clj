@@ -25,7 +25,7 @@
                                 [com.fasterxml.jackson.core/jackson-annotations]
                                 [com.fasterxml.jackson.core/jackson-databind]
                                 [com.fasterxml.jackson.core/jackson-core]]]
-                 [com.novemberain/langohr "3.5.1"]
+                 [com.novemberain/langohr "5.4.0" :exclusions [org.slf4j/slf4j-api]]
                  [liberator "0.15.3"]
                  [compojure "1.7.1"]
                  [ring "1.12.2"]
