@@ -19,7 +19,7 @@ COPY . /usr/src/app
 RUN lein do clean, uberjar && \
     cp target/dewey-standalone.jar .
 
-ENTRYPOINT ["dewey", "-Dlogback.configurationFile=/etc/iplant/de/logging/dewey-logging.xml", "-cp", ".:dewey-standalone.jar", "dewey.core"]
+ENTRYPOINT ["dewey", "-Dlogback.configurationFile=/usr/src/app/logback.xml", "-cp", ".:dewey-standalone.jar", "dewey.core"]
 CMD ["--help"]
 
 ARG git_commit=unknown
