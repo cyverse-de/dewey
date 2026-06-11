@@ -1,4 +1,4 @@
-(use '[clojure.java.shell :only (sh)])
+(require '[clojure.java.shell :refer (sh)])
 (require '[clojure.string :as string])
 
 (defn git-ref
@@ -16,9 +16,9 @@
   :manifest {"Git-Ref" ~(git-ref)}
   :uberjar-name "dewey-standalone.jar"
   :main ^:skip-aot dewey.core
-  :dependencies [[org.clojure/clojure "1.12.2"]
-                 [org.clojure/tools.cli "1.1.230"]
-                 [org.clojure/test.check "1.1.1"]
+  :dependencies [[org.clojure/clojure "1.12.5"]
+                 [org.clojure/tools.cli "1.4.256"]
+                 [org.clojure/test.check "1.1.3"]
                  [cheshire "6.0.0"]
                  [com.fasterxml.jackson.core/jackson-core "2.20.0"]
                  [com.fasterxml.jackson.core/jackson-databind "2.20.0"]
@@ -26,13 +26,13 @@
                  [com.fasterxml.jackson.dataformat/jackson-dataformat-smile "2.20.0"]
                  [com.novemberain/langohr "5.6.0" :exclusions [org.slf4j/slf4j-api]]
                  [liberator "0.15.3"]
-                 [compojure "1.7.1"]
-                 [ring "1.14.2"]
+                 [compojure "1.7.2"]
+                 [ring "1.15.4"]
                  [slingshot "0.12.2"]
-                 [org.cyverse/clj-jargon "3.1.4"
+                 [org.cyverse/clj-jargon "3.1.5"
                    :exclusions [[org.slf4j/slf4j-log4j12]
                                 [log4j]]]
-                 [org.cyverse/clojure-commons "3.0.11"]
+                 [org.cyverse/clojure-commons "3.0.12"]
                  [org.cyverse/common-cli "2.8.2"]
                  [org.cyverse/service-logging "2.8.5"]
                  [org.cyverse/event-messages "0.0.1"]
