@@ -42,7 +42,7 @@
   :eastwood {:exclude-namespaces [:test-paths]
              :linters [:wrong-arity :wrong-ns-form :wrong-pre-post :wrong-tag :misplaced-docstrings]}
   :plugins [[jonase/eastwood "1.4.3"]
-            [lein-ancient "0.7.0"]
+            [lein-ancient "1.0.0"]
             [test2junit "1.4.4"]]
   :resource-paths []
   :profiles {:dev     {:dependencies   [[midje "1.10.10"]]
